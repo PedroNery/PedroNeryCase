@@ -1,0 +1,22 @@
+apply plugin: 'com.android.application'
+apply from: "$rootDir/config/android-settings.gradle"
+
+android {
+    defaultConfig {
+        applicationId Config.applicationId
+        testInstrumentationRunner Config.genericRunner
+    }
+}
+
+dependencies {
+    //All ModuleProviders
+    implementation project(LocalLibs.movieList)
+    implementation project(LocalLibs.movieDetail)
+
+    //Others
+    implementation project(LocalLibs.navigation)
+    implementation Deps.timber
+    with addCommon
+    with addDependencyInject
+    with addTestUnitDependencies
+}

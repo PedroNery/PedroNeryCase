@@ -1,0 +1,11 @@
+apply plugin: 'com.android.library'
+apply from: "$rootDir/config/android-settings.gradle"
+
+dependencies {
+    with addCommon
+    implementation Deps.archCoreTest
+    implementation Deps.androidTest
+    implementation Deps.junit
+    implementation Deps.coroutinesTest
+    implementation Deps.mockk
+}

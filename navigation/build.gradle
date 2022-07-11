@@ -1,0 +1,8 @@
+apply plugin: 'com.android.library'
+apply from: "$rootDir/config/android-settings.gradle"
+
+dependencies {
+    with addCommon
+    with addDependencyInject
+    with addTestUnitDependencies
+}

@@ -1,0 +1,20 @@
+apply plugin: 'com.android.library'
+apply from: "$rootDir/config/android-settings.gradle"
+
+def keystorePropertiesFile = rootProject.file("common/keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+    defaultConfig {
+        buildConfigField "String", "baseUrl", '"https://www.omdbapi.com/"'
+        buildConfigField "String", "token", keystoreProperties["AUTHORIZATION_TOKEN"]
+    }
+}
+
+dependencies {
+    with addCommonBase
+    with addNetwork
+    with addDependencyInject
+    with addTestUnitDependencies
+}
