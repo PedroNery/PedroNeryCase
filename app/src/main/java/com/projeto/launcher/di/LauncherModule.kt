@@ -1,4 +1,4 @@
-package com.projeto.teste.launcher.di
+package com.projeto.launcher.di
 
 import com.projeto.teste.launcher.viewmodel.LauncherViewModel
 import org.koin.android.viewmodel.dsl.viewModel

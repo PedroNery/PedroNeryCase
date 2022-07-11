@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/orange_primary"
-    tools:context=".launcher.view.LauncherActivity">
+    tools:context="com.projeto.launcher.view.LauncherActivity">
 
     <ImageView
         android:layout_width="350dp"

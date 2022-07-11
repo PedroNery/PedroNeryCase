@@ -1,4 +1,4 @@
-package com.projeto.teste.launcher.action
+package com.projeto.launcher.action
 
 import com.projeto.pedronerycase.base.intent.UIAction
 

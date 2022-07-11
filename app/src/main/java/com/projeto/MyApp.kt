@@ -1,4 +1,4 @@
-package com.projeto.teste
+package com.projeto
 
 import android.app.Application
 import com.projeto.pedronerycase.koin.aware.KoinLifecycleCallbacks
