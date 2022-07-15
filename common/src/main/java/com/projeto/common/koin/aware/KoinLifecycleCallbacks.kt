@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
+import com.projeto.common.koin.aware.KoinAware
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
 

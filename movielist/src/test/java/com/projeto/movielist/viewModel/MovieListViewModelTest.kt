@@ -1,7 +1,7 @@
 package com.projeto.movielist.viewModel
 
 import androidx.lifecycle.Observer
-import com.projeto.common.model.Movie
+import com.projeto.common.model.movie.Movie
 import com.projeto.common.model.search.SearchDomain
 import com.projeto.common.model.search.toDataUi
 import com.projeto.movielist.domain.MovieListUseCase
@@ -46,7 +46,7 @@ class MovieListViewModelTest {
     }
 
     @Test
-    fun `searchMovieByName should set showContent when useCase return a SearchDomain`() = runBlocking {
+    fun `searchMovieByName should set showContent when useCase return a SearchDomain`() {
         //Given
         val anyString = RandomString().nextString()
         val movieMock: Movie = mockk()

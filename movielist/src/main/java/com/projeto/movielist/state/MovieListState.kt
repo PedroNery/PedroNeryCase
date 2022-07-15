@@ -1,6 +1,6 @@
 package com.projeto.movielist.state
 
-import com.projeto.common.model.Movie
+import com.projeto.common.model.movie.Movie
 import com.projeto.pedronerycase.base.intent.UIState
 
 data class MovieListState(

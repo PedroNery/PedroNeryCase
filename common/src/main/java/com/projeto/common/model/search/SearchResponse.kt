@@ -1,7 +1,7 @@
 package com.projeto.common.model.search
 
 import com.google.gson.annotations.SerializedName
-import com.projeto.common.model.Movie
+import com.projeto.common.model.movie.Movie
 
 data class SearchResponse(
     @SerializedName("Response")

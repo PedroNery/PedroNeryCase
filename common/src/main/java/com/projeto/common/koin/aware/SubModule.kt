@@ -1,4 +1,4 @@
-package com.projeto.pedronerycase.koin.aware
+package com.projeto.common.koin.aware
 
 import org.koin.core.module.Module
 

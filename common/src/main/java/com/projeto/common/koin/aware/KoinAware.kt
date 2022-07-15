@@ -1,4 +1,4 @@
-package com.projeto.pedronerycase.koin.aware
+package com.projeto.common.koin.aware
 
 interface KoinAware {
     val subModules: ModuleList

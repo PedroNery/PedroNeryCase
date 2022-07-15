@@ -1,7 +1,7 @@
 package com.projeto.common.base.extensions
 
-import com.projeto.pedronerycase.koin.aware.KoinAware
-import com.projeto.pedronerycase.koin.aware.ModuleList
+import com.projeto.common.koin.aware.KoinAware
+import com.projeto.common.koin.aware.ModuleList
 import org.koin.core.module.Module
 
 fun KoinAware.modules(

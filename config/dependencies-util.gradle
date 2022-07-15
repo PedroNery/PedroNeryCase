@@ -111,8 +111,3 @@ ext.addNetwork = {
     implementation Deps.retrofit_coroutines
     implementation Deps.okhttp_logging_interceptor
 }
-
-ext.addLoaderImage = {
-    implementation Deps.glide
-    kapt Deps.glide_annotation
-}
