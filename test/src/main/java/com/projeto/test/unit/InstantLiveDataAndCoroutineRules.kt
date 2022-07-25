@@ -1,4 +1,4 @@
-package com.projeto.test
+package com.projeto.test.unit
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import org.junit.rules.RuleChain

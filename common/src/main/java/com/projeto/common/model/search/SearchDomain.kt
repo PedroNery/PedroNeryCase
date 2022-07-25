@@ -5,5 +5,6 @@ import com.projeto.common.model.movie.Movie
 data class SearchDomain(
     val response: Boolean,
     val search: List<Movie>?,
-    val totalResults: String?
+    val totalResults: String?,
+    val error: String?
 )

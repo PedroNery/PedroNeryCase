@@ -1,7 +1,7 @@
 package com.projeto
 
 import android.app.Application
-import com.projeto.pedronerycase.koin.aware.KoinLifecycleCallbacks
+import com.projeto.common.koin.aware.KoinLifecycleCallbacks
 import com.projeto.common.koin.KoinAppDeclarationProvider
 import org.koin.core.context.startKoin
 

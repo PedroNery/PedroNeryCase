@@ -18,5 +18,5 @@ dependencies {
     implementation Deps.timber
     with addCommon
     with addDependencyInject
-    with addTestUnitDependencies
+    with addTestDependencies
 }

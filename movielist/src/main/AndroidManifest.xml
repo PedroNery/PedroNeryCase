@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.projeto.movielist">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application>
         <provider
             android:name="androidx.startup.InitializationProvider"
@@ -15,6 +18,7 @@
         </provider>
         <activity
             android:name=".view.MovieListActivity"
+            android:theme="@style/Theme.PedroNeryCase"
             android:exported="false"
             android:screenOrientation="portrait" />
     </application>

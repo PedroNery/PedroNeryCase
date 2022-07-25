@@ -1,5 +1,6 @@
 package com.projeto.movielist.viewModel
 
+import android.accounts.NetworkErrorException
 import androidx.lifecycle.Observer
 import com.projeto.common.model.movie.Movie
 import com.projeto.common.model.search.SearchDomain
@@ -9,12 +10,11 @@ import com.projeto.movielist.state.MovieListState
 import com.projeto.movielist.viewmodel.MovieListViewModel
 import com.projeto.pedronerycase.base.intent.UIAction
 import com.projeto.pedronerycase.base.intent.UIState
-import com.projeto.test.InstantLiveDataAndCoroutineRules
-import com.projeto.test.ViewModelTestRule
+import com.projeto.test.unit.InstantLiveDataAndCoroutineRules
+import com.projeto.test.unit.ViewModelTestRule
 import io.mockk.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.runBlocking
 import net.bytebuddy.utility.RandomString
 import org.junit.Before
 import org.junit.Rule
@@ -46,14 +46,15 @@ class MovieListViewModelTest {
     }
 
     @Test
-    fun `searchMovieByName should set showContent when useCase return a SearchDomain`() {
+    fun `searchMovieByName should set showContent when useCase return a SearchDomain with true response`() {
         //Given
         val anyString = RandomString().nextString()
         val movieMock: Movie = mockk()
         val searchDomainMock = SearchDomain(
             response = true,
             search = listOf(movieMock),
-            totalResults = "0"
+            totalResults = "0",
+            error = null
         )
         val searchDataUIMock = searchDomainMock.toDataUi()
         every {
@@ -68,6 +69,71 @@ class MovieListViewModelTest {
             stateObserver.onChanged(initialState)
             stateObserver.onChanged(initialState.showLoading(true))
             stateObserver.onChanged(initialState.showContent(searchDataUIMock.search))
+        }
+    }
+
+    @Test
+    fun `searchMovieByName should set showError when useCase return a SearchDomain with false response`() {
+        //Given
+        val anyString = RandomString().nextString()
+        val movieMock: Movie = mockk()
+        val searchDomainMock = SearchDomain(
+            response = false,
+            search = listOf(movieMock),
+            totalResults = "0",
+            error = "Nada encontrado"
+        )
+        val searchDataUIMock = searchDomainMock.toDataUi()
+        every {
+            movieListUseCase.getMoviesByName(anyString)
+        } returns flow { emit(searchDomainMock) }
+
+        //When
+        viewModel.searchMovieByName(anyString)
+
+        //Then
+        verifySequence {
+            stateObserver.onChanged(initialState)
+            stateObserver.onChanged(initialState.showLoading(true))
+            stateObserver.onChanged(initialState.showError(searchDataUIMock.error))
+        }
+    }
+
+    @Test
+    fun `searchMovieByName should set showError when useCase return IllegalArgumentException`() {
+        //Given
+        val anyString = RandomString().nextString()
+        every {
+            movieListUseCase.getMoviesByName(anyString)
+        } returns flow { throw IllegalArgumentException() }
+
+        //When
+        viewModel.searchMovieByName(anyString)
+
+        //Then
+        verifySequence {
+            stateObserver.onChanged(initialState)
+            stateObserver.onChanged(initialState.showLoading(true))
+            stateObserver.onChanged(initialState.showError("Digite ao menos 3 letras"))
+        }
+    }
+
+    @Test
+    fun `searchMovieByName should set showLoading false when useCase return other Exception`() {
+        //Given
+        val anyString = RandomString().nextString()
+        every {
+            movieListUseCase.getMoviesByName(anyString)
+        } returns flow { throw NetworkErrorException() }
+
+        //When
+        viewModel.searchMovieByName(anyString)
+
+        //Then
+        verifySequence {
+            stateObserver.onChanged(initialState)
+            stateObserver.onChanged(initialState.showLoading(true))
+            stateObserver.onChanged(initialState.showLoading(false))
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.projeto.test
+package com.projeto.test.unit
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.test.TestCoroutineDispatcher

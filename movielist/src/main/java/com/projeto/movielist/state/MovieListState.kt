@@ -6,6 +6,7 @@ import com.projeto.pedronerycase.base.intent.UIState
 data class MovieListState(
     val showLoading: Boolean = false,
     val showError: Boolean = false,
+    val errorMessage: String = "",
     val showContent: Boolean = false,
     val movieList: List<Movie>? = listOf()
 ) : UIState {
@@ -14,13 +15,15 @@ data class MovieListState(
         return this.copy(
             showError = false,
             showContent = false,
-            showLoading = loading
+            showLoading = loading,
+            errorMessage = ""
         )
     }
 
-    fun showError(): MovieListState {
+    fun showError(message: String?): MovieListState {
         return this.copy(
             showError = true,
+            errorMessage = message ?: "",
             showContent = false,
             showLoading = false
         )
@@ -31,7 +34,8 @@ data class MovieListState(
             showError = false,
             showLoading = false,
             showContent = true,
-            movieList = movieList
+            movieList = movieList,
+            errorMessage = ""
         )
     }
 

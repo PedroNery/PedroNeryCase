@@ -4,7 +4,7 @@ import com.projeto.common.model.search.SearchDomain
 import com.projeto.movielist.repository.MovieListRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import java.lang.IllegalArgumentException
+import kotlin.IllegalArgumentException
 
 class MovieListUseCaseImpl(
     private val movieListRepository: MovieListRepository
@@ -14,7 +14,7 @@ class MovieListUseCaseImpl(
         return if(name.length >= 3)
             movieListRepository.getMoviesByName(name)
         else
-            flow { throw IllegalArgumentException() }
+            flow { throw IllegalArgumentException("Digite ao menos 3 letras") }
     }
 
 }

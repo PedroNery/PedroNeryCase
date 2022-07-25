@@ -58,7 +58,9 @@ object Versions {
     const val mockk = "1.12.0"
     const val mockwebserver = "4.2.2"
     const val roboelectric = "4.5.1"
-    const val testRunner = "1.2.0"
+    const val testRunner = "1.4.0"
+    const val testRunnerExt = "1.1.2"
+    const val turbine = "0.5.2"
 
     // Compose
     const val compose = "1.1.0-beta03"
@@ -92,6 +94,7 @@ object Deps {
     const val coroutines_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     const val rxJava2 = "io.reactivex.rxjava2:rxjava:${Versions.rxJavaVersion}"
     const val rxJava2Android = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroidVersion}"
+    const val retrofitRxJava2Adapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
     const val koin_android = "io.insert-koin:koin-android:${Versions.koin}"
     const val koin_core = "io.insert-koin:koin-core:${Versions.koin}"
     const val koin_viewmodel = "io.insert-koin:koin-android-viewmodel:${Versions.koin}"
@@ -103,6 +106,8 @@ object Deps {
     const val navigationUi = "androidx.navigation:navigation-ui:${Versions.navigation}"
     const val startup = "androidx.startup:startup-runtime:${Versions.startup}"
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+    const val kotlinxSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.1"
+    const val retrofitKSerializationConverter = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0"
 
     // Debug Dependencies
     const val fragment_androidx_testing = "androidx.fragment:fragment-testing:${Versions.fragment_androidx}"
@@ -112,9 +117,9 @@ object Deps {
     const val androidTest = "androidx.test:core:${Versions.androidTestVersion}"
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
     const val mockk_android = "io.mockk:mockk-android:${Versions.mockk}"
-    const val mockkAgentJVM = "io.mockk:mockk-agent-jvm:${Versions.mockk}"
     const val junit = "junit:junit:${Versions.jUnit}"
     const val mockwebserver = "com.squareup.okhttp3:mockwebserver:${Versions.mockwebserver}"
+    const val turbine = "app.cash.turbine:turbine:${Versions.turbine}"
     const val roboelectric = "org.robolectric:robolectric:${Versions.roboelectric}"
     const val robolectric_annotation = "org.robolectric:annotations:${Versions.roboelectric}"
     const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTest}"
@@ -126,8 +131,10 @@ object Deps {
     const val espressoIntents = "androidx.test.espresso:espresso-intents:${Versions.espressoIntents}"
     const val espressoIdling = "androidx.test.espresso:espresso-idling-resource:${Versions.espressoIdling}"
     const val testRunner = "androidx.test:runner:${Versions.testRunner}"
+    const val testRunnerExt = "androidx.test.ext:junit-ktx:${Versions.testRunnerExt}"
     const val orchestrator = "androidx.test:orchestrator:${Versions.orchestrator}"
     const val navigationTesting = "androidx.navigation:navigation-testing:${Versions.navigation}"
+    const val byteBuddyAndroid = "net.bytebuddy:byte-buddy-android:1.10.14"
 
     // Compose
     const val composeUI = "androidx.compose.ui:ui:${Versions.compose}"
@@ -152,6 +159,7 @@ object Repo {
     const val fabric = "https://maven.fabric.io/public"
     const val mktcloud = "https://salesforce-marketingcloud.github.io/MarketingCloudSDK-Android/repository"
     const val gradle = "https://plugins.gradle.org/m2/"
+    const val kotlinx = "https://kotlin.bintray.com/kotlinx"
 }
 
 object LocalLibs {

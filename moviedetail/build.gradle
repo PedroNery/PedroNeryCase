@@ -5,5 +5,5 @@ dependencies {
     implementation project(LocalLibs.navigation)
     with addCommon
     with addDependencyInject
-    with addTestUnitDependencies
+    with addTestDependencies
 }

@@ -3,9 +3,19 @@ apply from: "$rootDir/config/android-settings.gradle"
 
 dependencies {
     with addCommon
+    with addNetwork
+    with addDependencyInject
     implementation Deps.archCoreTest
     implementation Deps.androidTest
     implementation Deps.junit
     implementation Deps.coroutinesTest
     implementation Deps.mockk
+    implementation Deps.mockwebserver
+    implementation Deps.retrofitKSerializationConverter
+    implementation Deps.kotlinxSerialization
+    implementation Deps.espresso
+    implementation Deps.koin_test
+    implementation Deps.espressoContrib
+    implementation Deps.espressoIntents
+    implementation Deps.espressoIdling
 }

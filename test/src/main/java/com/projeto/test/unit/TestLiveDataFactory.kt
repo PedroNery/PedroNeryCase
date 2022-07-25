@@ -1,4 +1,4 @@
-package com.projeto.test
+package com.projeto.test.unit
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer

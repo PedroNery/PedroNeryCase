@@ -1,4 +1,4 @@
-package com.projeto.test
+package com.projeto.test.unit
 
 import androidx.lifecycle.Observer
 import com.projeto.pedronerycase.base.factory.DefaultLiveDataFactory

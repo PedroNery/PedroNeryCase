@@ -14,11 +14,16 @@ buildscript {
     repositories {
         mavenCentral()
         google()
+        maven { url Repo.fabric }
+        maven { url Repo.mktcloud }
+        maven { url Repo.gradle }
+        maven { url Repo.kotlinx }
     }
 
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.2'
         classpath "com.google.gms:google-services:$project.googleVersion"
+        classpath "org.jetbrains.kotlin:kotlin-serialization:$Versions.kotlin"
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10'
     }
 }
@@ -28,6 +33,7 @@ allprojects {
         mavenCentral()
         google()
         gradlePluginPortal()
+        maven { url Repo.kotlinx }
     }
 }
 

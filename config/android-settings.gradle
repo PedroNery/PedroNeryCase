@@ -1,4 +1,5 @@
 apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'kotlinx-serialization'
 
 android {
     compileSdkVersion Config.compileSdk
@@ -29,5 +30,16 @@ android {
     }
     kotlinOptions {
         jvmTarget = Config.javaVersion.toString()
+    }
+    packagingOptions {
+        exclude "**/attach_hotspot_windows.dll"
+        exclude "META-INF/licenses/**"
+        exclude "META-INF/AL2.0"
+        exclude "META-INF/LGPL2.1"
+    }
+    configurations {
+        androidTestImplementation {
+            exclude group: 'io.mockk', module: 'mockk-agent-jvm'
+        }
     }
 }

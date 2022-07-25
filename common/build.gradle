@@ -16,5 +16,5 @@ dependencies {
     with addCommonBase
     with addNetwork
     with addDependencyInject
-    with addTestUnitDependencies
+    with addTestDependencies
 }

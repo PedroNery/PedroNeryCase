@@ -9,5 +9,7 @@ data class SearchResponse(
     @SerializedName("Search")
     val search: List<Movie>?,
     @SerializedName("totalResults")
-    val totalResults: String?
+    val totalResults: String?,
+    @SerializedName("Error")
+    val error: String?
 )

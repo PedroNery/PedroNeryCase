@@ -2,11 +2,12 @@ apply plugin: 'com.android.library'
 apply from: "$rootDir/config/android-settings.gradle"
 
 dependencies {
+    implementation project(LocalLibs.test)
     implementation project(LocalLibs.navigation)
     implementation project(LocalLibs.movieDetail)
     implementation Deps.glide
     with addCommon
     with addNetwork
     with addDependencyInject
-    with addTestUnitDependencies
+    with addTestDependencies
 }

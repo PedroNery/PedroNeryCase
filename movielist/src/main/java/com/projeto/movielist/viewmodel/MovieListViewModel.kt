@@ -28,16 +28,16 @@ class MovieListViewModel(
 
     private fun handleError(error: Throwable) {
         if (error !is IllegalArgumentException)
-            setState { state -> state.showError() }
-        else
             setState { state -> state.showLoading(false) }
+        else
+            setState { state -> state.showError(error.message) }
     }
 
     private fun handleSearchResult(searchDataUI: SearchDataUI) {
         if(searchDataUI.response)
             setState { state -> state.showContent(searchDataUI.search)}
         else
-            setState { state -> state.showError() }
+            setState { state -> state.showError(searchDataUI.error) }
     }
 
 }

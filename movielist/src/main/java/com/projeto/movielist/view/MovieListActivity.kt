@@ -47,6 +47,7 @@ class MovieListActivity : AppCompatActivity(R.layout.activity_movie_list), KoinA
     private fun handleState(state: MovieListState) {
         binding.loading.isVisible = state.showLoading
         binding.tvError.isVisible = state.showError
+        binding.tvError.text = state.errorMessage
         binding.rvMovieList.isVisible = state.showContent
         adapter.updateList(state.movieList)
     }

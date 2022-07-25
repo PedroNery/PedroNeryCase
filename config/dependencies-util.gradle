@@ -1,47 +1,23 @@
-ext.addTestUnitDependencies = {
-    testImplementation project(LocalLibs.test)
+ext.addTestDependencies = {
     testImplementation Deps.archCoreTest
-    debugImplementation Deps.androidTest
+    testImplementation Deps.androidxJunit
+    testImplementation Deps.androidxTruth
+    testImplementation Deps.testRunner
+    testImplementation Deps.turbine
     testImplementation Deps.junit
     testImplementation Deps.mockwebserver
     testImplementation Deps.coroutinesTest
     testImplementation Deps.mockk
-    testImplementation Deps.mockkAgentJVM
-    testImplementation Deps.koin_test
-
-    //RoboEletric
-    testImplementation(Deps.roboelectric) {
-        // https://github.com/robolectric/robolectric/issues/5245
-        exclude group: 'com.google.auto.service', module: 'auto-service'
-        exclude group: 'com.google.protobuf', module: 'protobuf-java'
-    }
-
-    testImplementation Deps.robolectric_annotation
-    testImplementation Deps.espresso
-    testImplementation Deps.espressoContrib
-    testImplementation Deps.espressoIntents
-    testImplementation Deps.espressoIdling
-    testImplementation Deps.androidxJunit
-    testImplementation Deps.androidxTruth
-    testImplementation Deps.testRunner
-}
-
-ext.addAndroidTestDependencies = {
-    androidTestImplementation Deps.archCoreTest
+    testImplementation Deps.byteBuddyAndroid
+    debugImplementation Deps.androidTest
+    androidTestImplementation Deps.junit
+    androidTestImplementation Deps.mockk_android
+    androidTestImplementation Deps.byteBuddyAndroid
+    androidTestImplementation Deps.koin_test
     androidTestImplementation Deps.espresso
     androidTestImplementation Deps.espressoContrib
     androidTestImplementation Deps.espressoIntents
     androidTestImplementation Deps.espressoIdling
-    androidTestImplementation Deps.androidxJunit
-    androidTestImplementation Deps.androidxTruth
-    androidTestImplementation Deps.mockwebserver
-    androidTestImplementation Deps.testRunner
-    androidTestImplementation Deps.mockk_android
-    androidTestImplementation Deps.robolectric_annotation
-
-    androidTestUtil Deps.orchestrator
-
-    debugImplementation Deps.fragment_androidx_testing
 }
 
 ext.addJetPack = {
@@ -109,5 +85,6 @@ ext.addNetwork = {
     implementation Deps.retrofit_runtime
     implementation Deps.retrofit_gson
     implementation Deps.retrofit_coroutines
+    implementation Deps.retrofitRxJava2Adapter
     implementation Deps.okhttp_logging_interceptor
 }

@@ -1,4 +1,4 @@
-package com.projeto.pedronerycase.koin.aware
+package com.projeto.common.koin.aware
 
 import android.app.Activity
 import android.app.Application
