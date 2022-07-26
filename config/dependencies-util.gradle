@@ -38,7 +38,6 @@ ext.addNavigation = {
 }
 
 ext.addCommonBase = {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Deps.kotlinReflect
     implementation Deps.kotlin_ktx
     implementation Deps.support_app_compat
@@ -52,7 +51,6 @@ ext.addCommonBase = {
 }
 
 ext.addCommon = {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(LocalLibs.common)
     implementation Deps.kotlinReflect
     implementation Deps.kotlin_ktx

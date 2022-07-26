@@ -21,7 +21,8 @@ object Config {
 object Versions {
     // Tools
     const val kotlin = "1.5.30"
-    const val android_gradle_plugin = "7.0.0"
+    const val android_tools_build_gradle = "7.0.0"
+    const val android_gradle_plugin = "1.6.10"
 
     // Others
     const val ktx = "1.7.0"
@@ -30,7 +31,6 @@ object Versions {
     const val okhttp_logging_interceptor = "4.2.2"
     const val support = "1.3.1"
     const val material = "1.4.0"
-    const val recyclerview = "1.0.0"
     const val constraint_layout = "2.1.1"
     const val fragment_androidx = "1.3.6"
     const val lifecycle = "2.4.0"
@@ -54,10 +54,8 @@ object Versions {
     const val espressoIdling = "3.4.0"
     const val coroutinesTest = "1.5.1"
     const val jUnit = "4.12"
-    const val orchestrator = "1.1.1"
     const val mockk = "1.12.0"
     const val mockwebserver = "4.2.2"
-    const val roboelectric = "4.5.1"
     const val testRunner = "1.4.0"
     const val testRunnerExt = "1.1.2"
     const val turbine = "0.5.2"
@@ -72,11 +70,6 @@ object Versions {
 }
 
 object Deps {
-    // Tools Dependencies
-    const val tools_kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
-    const val tools_android_gradle = "com.android.tools.build:gradle:${Versions.android_gradle_plugin}"
-    const val tools_navigation_safe_args = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
-
     //Others Dependencies
     const val kotlinReflect = "org.jetbrains.kotlin:kotlin-reflect:${Versions.kotlin}"
     const val kotlin_ktx = "androidx.core:core-ktx:${Versions.ktx}"
@@ -87,7 +80,6 @@ object Deps {
     const val okhttp_logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp_logging_interceptor}"
     const val support_app_compat = "androidx.appcompat:appcompat:${Versions.support}"
     const val support_material = "com.google.android.material:material:${Versions.material}"
-    const val support_recyclerview = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
     const val support_constraint_layout = "androidx.constraintlayout:constraintlayout:${Versions.constraint_layout}"
     const val lifecycle_runtime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
     const val coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
@@ -109,9 +101,6 @@ object Deps {
     const val kotlinxSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.1"
     const val retrofitKSerializationConverter = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0"
 
-    // Debug Dependencies
-    const val fragment_androidx_testing = "androidx.fragment:fragment-testing:${Versions.fragment_androidx}"
-
     // Test Dependencies
     const val archCoreTest = "androidx.arch.core:core-testing:${Versions.lifecycle_testing}"
     const val androidTest = "androidx.test:core:${Versions.androidTestVersion}"
@@ -120,8 +109,6 @@ object Deps {
     const val junit = "junit:junit:${Versions.jUnit}"
     const val mockwebserver = "com.squareup.okhttp3:mockwebserver:${Versions.mockwebserver}"
     const val turbine = "app.cash.turbine:turbine:${Versions.turbine}"
-    const val roboelectric = "org.robolectric:robolectric:${Versions.roboelectric}"
-    const val robolectric_annotation = "org.robolectric:annotations:${Versions.roboelectric}"
     const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTest}"
     const val koin_test = "io.insert-koin:koin-test:${Versions.koin}"
     const val androidxJunit = "androidx.test.ext:truth:${Versions.androidxTruth}"
@@ -132,7 +119,6 @@ object Deps {
     const val espressoIdling = "androidx.test.espresso:espresso-idling-resource:${Versions.espressoIdling}"
     const val testRunner = "androidx.test:runner:${Versions.testRunner}"
     const val testRunnerExt = "androidx.test.ext:junit-ktx:${Versions.testRunnerExt}"
-    const val orchestrator = "androidx.test:orchestrator:${Versions.orchestrator}"
     const val navigationTesting = "androidx.navigation:navigation-testing:${Versions.navigation}"
     const val byteBuddyAndroid = "net.bytebuddy:byte-buddy-android:1.10.14"
 
@@ -149,13 +135,9 @@ object Deps {
     const val composeAccompanistPlaceholder = "com.google.accompanist:accompanist-placeholder-material:${Versions.composeAccompanist}"
     const val constraintLayoutCompose = "androidx.constraintlayout:constraintlayout-compose:${Versions.constraintLayoutCompose}"
     const val accompanistPager = "com.google.accompanist:accompanist-pager:${Versions.composeAccompanist}"
-    const val accompanistPagerIndicator  = "com.google.accompanist:accompanist-pager-indicators:${Versions.composeAccompanist}"
-    const val accompanistSwipeRefresh  = "com.google.accompanist:accompanist-swiperefresh:${Versions.composeAccompanist}"
 }
 
 object Repo {
-    const val jitpack = "https://jitpack.io"
-    const val sonatype = "https://oss.sonatype.org/content/repositories/snapshots"
     const val fabric = "https://maven.fabric.io/public"
     const val mktcloud = "https://salesforce-marketingcloud.github.io/MarketingCloudSDK-Android/repository"
     const val gradle = "https://plugins.gradle.org/m2/"

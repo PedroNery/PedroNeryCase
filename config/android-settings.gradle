@@ -30,6 +30,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = Config.javaVersion.toString()
+        freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
     }
     packagingOptions {
         exclude "**/attach_hotspot_windows.dll"
