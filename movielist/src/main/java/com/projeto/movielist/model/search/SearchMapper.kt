@@ -1,4 +1,4 @@
-package com.projeto.common.model.search
+package com.projeto.movielist.model.search
 
 fun SearchResponse.toDomain(): SearchDomain {
     return SearchDomain(

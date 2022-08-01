@@ -1,4 +1,4 @@
-package com.projeto.pedronerycase.base.factory
+package com.projeto.common.base.factory
 
 import androidx.lifecycle.MutableLiveData
 import com.projeto.pedronerycase.base.livedata.OneShotLiveData

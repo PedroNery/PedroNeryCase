@@ -1,7 +1,7 @@
 package com.projeto.movielist.testUtils
 
-import com.projeto.common.model.movie.Movie
-import com.projeto.common.model.search.SearchResponse
+import com.projeto.movielist.model.movie.MovieResumed
+import com.projeto.movielist.model.search.SearchResponse
 
 internal object MovieListStub {
 
@@ -9,14 +9,14 @@ internal object MovieListStub {
         totalResults = "2",
         response = true,
         search = listOf(
-            Movie(
+            MovieResumed(
                 title = "Avatar",
                 year = "2009",
                 imdbID = "tt0499549",
                 type = "movie",
                 poster = "https://m.media-amazon.com/images/M/MV5BZDA0OGQxNTItMDZkMC00N2UyLTg3MzMtYTJmNjg3Nzk5MzRiXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg"
             ),
-            Movie(
+            MovieResumed(
                 title = "Avatar: The Last Airbender",
                 year = "2005–2008",
                 imdbID = "tt0417299",

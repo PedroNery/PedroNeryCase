@@ -2,7 +2,7 @@ package com.projeto.pedronerycase.base.intent
 
 import androidx.lifecycle.LiveData
 import com.projeto.pedronerycase.base.livedata.OneShotLiveData
-import com.projeto.pedronerycase.base.viewmodel.ViewModelPlugins
+import com.projeto.common.base.viewmodel.ViewModelPlugins
 
 class Action<Action : UIAction> {
 

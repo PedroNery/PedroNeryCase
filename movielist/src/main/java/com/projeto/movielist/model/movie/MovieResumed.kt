@@ -1,8 +1,8 @@
-package com.projeto.common.model.movie
+package com.projeto.movielist.model.movie
 
 import com.google.gson.annotations.SerializedName
 
-data class Movie(
+data class MovieResumed(
     @SerializedName("Poster")
     val poster: String,
     @SerializedName("Title")

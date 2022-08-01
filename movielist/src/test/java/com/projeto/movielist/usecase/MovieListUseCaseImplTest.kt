@@ -1,7 +1,7 @@
 package com.projeto.movielist.usecase
 
 import app.cash.turbine.test
-import com.projeto.common.model.search.SearchDomain
+import com.projeto.movielist.model.search.SearchDomain
 import com.projeto.movielist.domain.MovieListUseCase
 import com.projeto.movielist.domain.MovieListUseCaseImpl
 import com.projeto.movielist.repository.MovieListRepository

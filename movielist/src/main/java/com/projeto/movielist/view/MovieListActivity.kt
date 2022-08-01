@@ -16,6 +16,8 @@ import com.projeto.movielist.di.movieListPresentationModule
 import com.projeto.movielist.state.MovieListState
 import com.projeto.movielist.view.adapter.MovieSearchAdapter
 import com.projeto.movielist.viewmodel.MovieListViewModel
+import com.projeto.navigation.MovieDetailNavigation
+import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MovieListActivity : AppCompatActivity(R.layout.activity_movie_list), KoinAware {
@@ -24,7 +26,13 @@ class MovieListActivity : AppCompatActivity(R.layout.activity_movie_list), KoinA
 
     private val viewModel: MovieListViewModel by viewModel()
     private val binding: ActivityMovieListBinding by viewBinding(R.id.movieListActivityRoot)
-    private var adapter = MovieSearchAdapter(listOf())
+    private val movieDetailNavigation: MovieDetailNavigation by inject()
+    private val adapter : MovieSearchAdapter by lazy {
+        MovieSearchAdapter(
+            movieItemOnClick,
+            listOf()
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +58,10 @@ class MovieListActivity : AppCompatActivity(R.layout.activity_movie_list), KoinA
         binding.tvError.text = state.errorMessage
         binding.rvMovieList.isVisible = state.showContent
         adapter.updateList(state.movieList)
+    }
+
+    private val movieItemOnClick: (movieId : String) -> Unit = { movieId ->
+        movieDetailNavigation.navigateToMovieDetailNavigation(this, movieId)
     }
 
 }

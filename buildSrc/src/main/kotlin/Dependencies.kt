@@ -61,7 +61,7 @@ object Versions {
     const val turbine = "0.5.2"
 
     // Compose
-    const val compose = "1.1.0-beta03"
+    const val compose = "1.1.1"
     const val composePreview = "1.1.0-alpha04"
     const val composeActivity = "1.3.0"
     const val composeCoil = "1.3.1"
@@ -131,7 +131,6 @@ object Deps {
     const val foundation = "androidx.compose.foundation:foundation:${Versions.compose}"
     const val composeRuntime = "androidx.compose.runtime:runtime-livedata:${Versions.compose}"
     const val composeCoil = "io.coil-kt:coil-compose:${Versions.composeCoil}"
-    const val composeKoin = "io.insert-koin:koin-androidx-compose:${Versions.koin}"
     const val composeAccompanistPlaceholder = "com.google.accompanist:accompanist-placeholder-material:${Versions.composeAccompanist}"
     const val constraintLayoutCompose = "androidx.constraintlayout:constraintlayout-compose:${Versions.constraintLayoutCompose}"
     const val accompanistPager = "com.google.accompanist:accompanist-pager:${Versions.composeAccompanist}"

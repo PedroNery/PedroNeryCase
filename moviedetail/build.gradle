@@ -1,9 +1,10 @@
 apply plugin: 'com.android.library'
-apply from: "$rootDir/config/android-settings.gradle"
+apply from: "$rootDir/config/dependencies-compose.gradle"
 
 dependencies {
     implementation project(LocalLibs.navigation)
     with addCommon
+    with addNetwork
     with addDependencyInject
     with addTestDependencies
 }

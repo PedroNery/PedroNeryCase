@@ -1,8 +1,8 @@
-package com.projeto.pedronerycase.base.viewmodel
+package com.projeto.common.base.viewmodel
 
 import androidx.annotation.VisibleForTesting
-import com.projeto.pedronerycase.base.factory.DefaultLiveDataFactory
-import com.projeto.pedronerycase.base.factory.LiveDataFactory
+import com.projeto.common.base.factory.DefaultLiveDataFactory
+import com.projeto.common.base.factory.LiveDataFactory
 
 object ViewModelPlugins {
 

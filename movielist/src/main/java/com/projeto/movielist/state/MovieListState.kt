@@ -1,6 +1,6 @@
 package com.projeto.movielist.state
 
-import com.projeto.common.model.movie.Movie
+import com.projeto.movielist.model.movie.MovieResumed
 import com.projeto.pedronerycase.base.intent.UIState
 
 data class MovieListState(
@@ -8,7 +8,7 @@ data class MovieListState(
     val showError: Boolean = false,
     val errorMessage: String = "",
     val showContent: Boolean = false,
-    val movieList: List<Movie>? = listOf()
+    val movieList: List<MovieResumed>? = listOf()
 ) : UIState {
 
     fun showLoading(loading: Boolean): MovieListState {
@@ -29,7 +29,7 @@ data class MovieListState(
         )
     }
 
-    fun showContent(movieList: List<Movie>?) : MovieListState {
+    fun showContent(movieList: List<MovieResumed>?) : MovieListState {
         return this.copy(
             showError = false,
             showLoading = false,

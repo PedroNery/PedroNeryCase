@@ -9,7 +9,7 @@ abstract class ViewModel<State : UIState, Action : UIAction>(
     initialState : State
 ) : ViewModel() {
 
-    private val viewModelState = com.projeto.pedronerycase.base.intent.State(initialState)
+    private val viewModelState = com.projeto.common.base.intent.State(initialState)
     private val viewModelAction = com.projeto.pedronerycase.base.intent.Action<Action>()
 
     val state: LiveData<State> = viewModelState.state

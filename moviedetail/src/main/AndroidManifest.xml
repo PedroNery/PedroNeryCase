@@ -14,7 +14,7 @@
                 android:value="androidx.startup" />
         </provider>
         <activity
-            android:name=".MovieDetailActivity"
+            android:name=".view.MovieDetailActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
     </application>

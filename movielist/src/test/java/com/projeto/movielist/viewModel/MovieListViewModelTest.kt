@@ -2,9 +2,9 @@ package com.projeto.movielist.viewModel
 
 import android.accounts.NetworkErrorException
 import androidx.lifecycle.Observer
-import com.projeto.common.model.movie.Movie
-import com.projeto.common.model.search.SearchDomain
-import com.projeto.common.model.search.toDataUi
+import com.projeto.movielist.model.movie.MovieResumed
+import com.projeto.movielist.model.search.SearchDomain
+import com.projeto.movielist.model.search.toDataUi
 import com.projeto.movielist.domain.MovieListUseCase
 import com.projeto.movielist.state.MovieListState
 import com.projeto.movielist.viewmodel.MovieListViewModel
@@ -49,7 +49,7 @@ class MovieListViewModelTest {
     fun `searchMovieByName should set showContent when useCase return a SearchDomain with true response`() {
         //Given
         val anyString = RandomString().nextString()
-        val movieMock: Movie = mockk()
+        val movieMock: MovieResumed = mockk()
         val searchDomainMock = SearchDomain(
             response = true,
             search = listOf(movieMock),
@@ -76,7 +76,7 @@ class MovieListViewModelTest {
     fun `searchMovieByName should set showError when useCase return a SearchDomain with false response`() {
         //Given
         val anyString = RandomString().nextString()
-        val movieMock: Movie = mockk()
+        val movieMock: MovieResumed = mockk()
         val searchDomainMock = SearchDomain(
             response = false,
             search = listOf(movieMock),

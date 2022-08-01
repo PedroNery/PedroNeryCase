@@ -1,8 +1,8 @@
 package com.projeto.movielist.viewmodel
 
 import androidx.lifecycle.viewModelScope
-import com.projeto.common.model.search.SearchDataUI
-import com.projeto.common.model.search.toDataUi
+import com.projeto.movielist.model.search.SearchDataUI
+import com.projeto.movielist.model.search.toDataUi
 import com.projeto.movielist.action.MovieListAction
 import com.projeto.movielist.domain.MovieListUseCase
 import com.projeto.movielist.state.MovieListState

@@ -1,7 +1,8 @@
-package com.projeto.pedronerycase.base.intent
+package com.projeto.common.base.intent
 
 import androidx.lifecycle.LiveData
-import com.projeto.pedronerycase.base.viewmodel.ViewModelPlugins
+import com.projeto.pedronerycase.base.intent.UIState
+import com.projeto.common.base.viewmodel.ViewModelPlugins
 
 class State<State : UIState>(initialState: State) {
 

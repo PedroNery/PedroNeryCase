@@ -1,6 +1,6 @@
 package com.projeto.movielist.repository
 
-import com.projeto.common.model.search.SearchDomain
+import com.projeto.movielist.model.search.SearchDomain
 import kotlinx.coroutines.flow.Flow
 
 interface MovieListRepository {

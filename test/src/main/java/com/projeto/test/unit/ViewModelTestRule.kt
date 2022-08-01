@@ -1,10 +1,10 @@
 package com.projeto.test.unit
 
 import androidx.lifecycle.Observer
-import com.projeto.pedronerycase.base.factory.DefaultLiveDataFactory
+import com.projeto.common.base.factory.DefaultLiveDataFactory
 import com.projeto.pedronerycase.base.intent.UIAction
 import com.projeto.pedronerycase.base.intent.UIState
-import com.projeto.pedronerycase.base.viewmodel.ViewModelPlugins
+import com.projeto.common.base.viewmodel.ViewModelPlugins
 import io.mockk.mockk
 import org.junit.rules.ExternalResource
 

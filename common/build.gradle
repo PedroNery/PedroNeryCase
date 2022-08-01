@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply from: "$rootDir/config/android-settings.gradle"
+apply from: "$rootDir/config/dependencies-compose.gradle"
 
 def keystorePropertiesFile = rootProject.file("common/keystore.properties")
 def keystoreProperties = new Properties()

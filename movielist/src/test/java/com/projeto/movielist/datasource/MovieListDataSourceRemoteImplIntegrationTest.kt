@@ -1,7 +1,7 @@
 package com.projeto.movielist.datasource
 
 import androidx.test.filters.MediumTest
-import com.projeto.movielist.service.MovieService
+import com.projeto.movielist.service.MovieListService
 import com.projeto.test.integration.createRetrofit
 import com.projeto.test.integration.startOn
 import kotlinx.coroutines.runBlocking
@@ -15,16 +15,16 @@ import kotlin.time.ExperimentalTime
 
 @MediumTest
 @ExperimentalTime
-class MovieDataSourceImplIntegrationTest {
+class MovieListDataSourceRemoteImplIntegrationTest {
 
     private val mockWebServer = MockWebServer()
     private val baseUrl: String = mockWebServer.url("/").toString()
     private val retrofit = createRetrofit(baseUrl)
-    private val dataSource: MovieDataSourceImpl = createDataSource()
+    private val dataSource: MovieListDataSourceRemoteImpl = createDataSource()
 
-    private fun createDataSource(): MovieDataSourceImpl {
-        val service = retrofit.create(MovieService::class.java)
-        return MovieDataSourceImpl(service)
+    private fun createDataSource(): MovieListDataSourceRemoteImpl {
+        val service = retrofit.create(MovieListService::class.java)
+        return MovieListDataSourceRemoteImpl(service)
     }
 
     @Test

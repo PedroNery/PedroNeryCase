@@ -4,12 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.projeto.common.model.movie.Movie
+import com.projeto.movielist.model.movie.MovieResumed
 import com.projeto.movielist.R
 import com.projeto.movielist.databinding.MovieListItemBinding
 
 class MovieSearchAdapter(
-    private var items: List<Movie>
+    private val movieItemClick: (movieId: String) -> Unit,
+    private var items: List<MovieResumed>
 ) : RecyclerView.Adapter<MovieSearchAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -22,19 +23,22 @@ class MovieSearchAdapter(
 
     inner class ViewHolder(private val binding: MovieListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: Movie) {
+        fun bind(item: MovieResumed) {
             binding.tvMovieTitle.text = item.title
             Glide.with(itemView.context)
                 .load(item.poster)
                 .placeholder(R.drawable.movie_placeholder)
                 .centerCrop()
                 .into(binding.ivMoviePoster)
+            binding.cvLayout.setOnClickListener {
+                movieItemClick(item.imdbID)
+            }
         }
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(items[position])
 
-    fun updateList(list: List<Movie>?) {
+    fun updateList(list: List<MovieResumed>?) {
         if (!list.isNullOrEmpty()) {
             this.items = list
             this.notifyDataSetChanged()
