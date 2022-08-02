@@ -17,7 +17,9 @@ fun MovieDetailScreen(id: String, activity: ComponentActivity) {
     }
 
     if(state.showError)
-        MovieDetailError()
+        MovieDetailError {
+            movieDetailViewModel.searchMovieDetailById(id)
+        }
     else
         MovieDetailComponent(
                 movieDetailDataUI = state.movieDetail,

@@ -4,14 +4,11 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -21,11 +18,18 @@ import coil.compose.rememberImagePainter
 import com.google.accompanist.placeholder.PlaceholderHighlight
 import com.google.accompanist.placeholder.material.placeholder
 import com.google.accompanist.placeholder.material.shimmer
+import com.projeto.designsystem.compose.components.BodyText
+import com.projeto.designsystem.compose.components.TitleText
+import com.projeto.designsystem.compose.ui.ErrorScreen
 import com.projeto.moviedetail.model.MovieDetailDataUI
 
 @Composable
-fun MovieDetailError() {
-    Text(text = "Erro")
+fun MovieDetailError(
+    onClickRetry: () -> Unit
+) {
+    ErrorScreen {
+        onClickRetry()
+    }
 }
 
 @OptIn(ExperimentalCoilApi::class)
@@ -83,7 +87,7 @@ fun MovieDetailComponent(
                 }
         ) {
             for (information in informationsList)
-                Text(
+                BodyText(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(top = 5.dp)
@@ -92,14 +96,12 @@ fun MovieDetailComponent(
                             highlight = PlaceholderHighlight.shimmer()
                         ),
                     text = information.replaceFirstChar { it.uppercaseChar() },
-                    fontFamily = FontFamily.Cursive,
                     fontSize = 24.sp,
-                    maxLines = 3,
-                    overflow = TextOverflow.Ellipsis
+                    maxLines = 3
                 )
         }
 
-        Text(
+        BodyText(
             modifier = Modifier
                 .constrainAs(plot) {
                     top.linkTo(poster.bottom, margin = 24.dp)
@@ -114,7 +116,6 @@ fun MovieDetailComponent(
                     highlight = PlaceholderHighlight.shimmer()
                 ),
             text = movieDetailDataUI.plot,
-            fontFamily = FontFamily.Cursive,
             fontSize = 24.sp
         )
     }

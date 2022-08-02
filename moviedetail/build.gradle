@@ -3,6 +3,7 @@ apply from: "$rootDir/config/dependencies-compose.gradle"
 
 dependencies {
     implementation project(LocalLibs.navigation)
+    implementation project(LocalLibs.designSystem)
     with addCommon
     with addNetwork
     with addDependencyInject

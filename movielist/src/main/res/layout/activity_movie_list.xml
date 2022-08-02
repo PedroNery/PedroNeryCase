@@ -5,13 +5,31 @@
     android:id="@+id/movieListActivityRoot"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <EditText
-        android:id="@+id/etSearchMovie"
-        android:layout_width="match_parent"
+    <com.projeto.designsystem.view.NewTextInputLayout
+        android:id="@+id/tilSearchMovie"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="20dp"/>
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:hint="Nome do Filme"
+        app:boxStrokeColor="@color/orange_primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etSearchMovie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="textCapWords"
+            android:textColor="#333333"
+            android:fontFamily="@font/font_regular"
+            android:textColorHighlight="@color/orange_primary"
+            android:textColorHint="#717171" />
+
+    </com.projeto.designsystem.view.NewTextInputLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMovieList"
@@ -24,7 +42,7 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2"
         android:overScrollMode="never"
-        app:layout_constraintTop_toBottomOf="@id/etSearchMovie"
+        app:layout_constraintTop_toBottomOf="@id/tilSearchMovie"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <TextView

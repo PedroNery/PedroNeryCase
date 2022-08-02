@@ -5,6 +5,7 @@ dependencies {
     implementation project(LocalLibs.test)
     implementation project(LocalLibs.navigation)
     implementation project(LocalLibs.movieDetail)
+    implementation project(LocalLibs.designSystem)
     implementation Deps.glide
     with addCommon
     with addNetwork

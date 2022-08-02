@@ -146,6 +146,7 @@ object Repo {
 object LocalLibs {
     const val common = ":common"
     const val navigation = ":navigation"
+    const val designSystem = ":designsystem"
     const val app = ":app"
     const val movieList = ":movielist"
     const val movieDetail = ":moviedetail"
