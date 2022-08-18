@@ -29,8 +29,7 @@ class MovieListActivity : AppCompatActivity(R.layout.activity_movie_list), KoinA
     private val movieDetailNavigation: MovieDetailNavigation by inject()
     private val adapter : MovieSearchAdapter by lazy {
         MovieSearchAdapter(
-            movieItemOnClick,
-            listOf()
+            movieItemOnClick
         )
     }
 
@@ -57,7 +56,7 @@ class MovieListActivity : AppCompatActivity(R.layout.activity_movie_list), KoinA
         binding.tvError.isVisible = state.showError
         binding.tvError.text = state.errorMessage
         binding.rvMovieList.isVisible = state.showContent
-        adapter.updateList(state.movieList)
+        adapter.submitList(state.movieList)
     }
 
     private val movieItemOnClick: (movieId : String) -> Unit = { movieId ->

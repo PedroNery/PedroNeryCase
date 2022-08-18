@@ -2,16 +2,17 @@ package com.projeto.movielist.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.projeto.movielist.model.movie.MovieResumed
 import com.projeto.movielist.R
 import com.projeto.movielist.databinding.MovieListItemBinding
 
-class MovieSearchAdapter(
-    private val movieItemClick: (movieId: String) -> Unit,
-    private var items: List<MovieResumed>
-) : RecyclerView.Adapter<MovieSearchAdapter.ViewHolder>() {
+internal class MovieSearchAdapter(
+    private val movieItemClick: (movieId: String) -> Unit
+) : ListAdapter<MovieResumed, MovieSearchAdapter.ViewHolder>(MovieListDillCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -19,7 +20,9 @@ class MovieSearchAdapter(
         return ViewHolder(binding)
     }
 
-    override fun getItemCount(): Int = items.size
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(getItem(position))
+    }
 
     inner class ViewHolder(private val binding: MovieListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -36,12 +39,14 @@ class MovieSearchAdapter(
         }
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(items[position])
-
-    fun updateList(list: List<MovieResumed>?) {
-        if (!list.isNullOrEmpty()) {
-            this.items = list
-            this.notifyDataSetChanged()
+    class MovieListDillCallback : DiffUtil.ItemCallback<MovieResumed>() {
+        override fun areItemsTheSame(oldItem: MovieResumed, newItem: MovieResumed): Boolean {
+            return oldItem == newItem
         }
+
+        override fun areContentsTheSame(oldItem: MovieResumed, newItem: MovieResumed): Boolean {
+            return oldItem == newItem
+        }
+
     }
 }

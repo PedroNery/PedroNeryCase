@@ -15,6 +15,8 @@ import com.projeto.test.unit.ViewModelTestRule
 import io.mockk.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.test.TestCoroutineDispatcher
+import kotlinx.coroutines.test.runBlockingTest
 import net.bytebuddy.utility.RandomString
 import org.junit.Before
 import org.junit.Rule
@@ -40,13 +42,13 @@ class MovieListViewModelTest {
 
     @Before
     fun setUp(){
-        viewModel = MovieListViewModel(movieListUseCase)
+        viewModel = MovieListViewModel(movieListUseCase, TestCoroutineDispatcher())
         stateObserver = viewModelRule.getStateObsever()
         actionObserver = viewModelRule.getActionObsever()
     }
 
     @Test
-    fun `searchMovieByName should set showContent when useCase return a SearchDomain with true response`() {
+    fun `searchMovieByName should set showContent when useCase return a SearchDomain with true response`() = runBlockingTest {
         //Given
         val anyString = RandomString().nextString()
         val movieMock: MovieResumed = mockk()
@@ -73,7 +75,7 @@ class MovieListViewModelTest {
     }
 
     @Test
-    fun `searchMovieByName should set showError when useCase return a SearchDomain with false response`() {
+    fun `searchMovieByName should set showError when useCase return a SearchDomain with false response`() = runBlockingTest {
         //Given
         val anyString = RandomString().nextString()
         val movieMock: MovieResumed = mockk()
@@ -100,12 +102,12 @@ class MovieListViewModelTest {
     }
 
     @Test
-    fun `searchMovieByName should set showError when useCase return IllegalArgumentException`() {
+    fun `searchMovieByName should set showError when useCase return IllegalArgumentException`() = runBlockingTest {
         //Given
         val anyString = RandomString().nextString()
         every {
             movieListUseCase.getMoviesByName(anyString)
-        } returns flow { throw IllegalArgumentException() }
+        } returns flow { throw IllegalArgumentException("Digite ao menos 3 letras") }
 
         //When
         viewModel.searchMovieByName(anyString)
@@ -119,7 +121,7 @@ class MovieListViewModelTest {
     }
 
     @Test
-    fun `searchMovieByName should set showLoading false when useCase return other Exception`() {
+    fun `searchMovieByName should set showLoading false when useCase return other Exception`() = runBlockingTest {
         //Given
         val anyString = RandomString().nextString()
         every {

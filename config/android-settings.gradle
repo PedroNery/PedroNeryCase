@@ -1,6 +1,7 @@
 apply plugin: 'org.jetbrains.kotlin.android'
 apply plugin: 'kotlinx-serialization'
 apply plugin: 'kotlin-android'
+apply from: "$rootDir/config/dependencies-util.gradle"
 
 android {
     compileSdkVersion Config.compileSdk

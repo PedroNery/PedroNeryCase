@@ -17,8 +17,6 @@ class ActivityTestRule<T : Activity>(
     private var setupBeforeActivityOpen: () -> Unit = {}
     private var setupBundleActivity: Bundle = Bundle()
     private lateinit var activityScenario: ActivityScenario<T>
-    @Deprecated("Utilize o método afterActivityOpen para ter acesso a activity, de forma segura")
-    var activity: Activity? = null
 
     fun beforeActivityLaunch(block: () -> Unit) = apply {
         setupBeforeActivityOpen = block
@@ -38,20 +36,9 @@ class ActivityTestRule<T : Activity>(
 
         activityScenario = ActivityScenario.launch<T>(intent)
 
-        activityScenario.onActivity { activity ->
-            this.activity = activity
-        }
     }
 
     fun afterActivityOpen(action: (T) -> Unit) {
         activityScenario.onActivity(action)
-    }
-
-    fun getActivityState(): Lifecycle.State = activityScenario.state
-
-    fun getActivityResult(): Instrumentation.ActivityResult? = activityScenario.result
-
-    fun closeActivity() {
-        activityScenario.close()
     }
 }
