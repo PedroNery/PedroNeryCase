@@ -1,4 +1,4 @@
-package com.projeto.teste.launcher.viewmodel
+package com.projeto.launcher.viewmodel
 
 import androidx.lifecycle.viewModelScope
 import com.projeto.common.base.viewmodel.ActionViewModel

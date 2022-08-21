@@ -1,6 +1,7 @@
 package com.projeto.test.ui.base
 
 import android.app.Activity
+import com.projeto.common.koin.aware.scopemodule.KoinActivity
 import com.projeto.test.ui.robot.RobotArrangement
 
 interface ActivityTest<R : RobotArrangement<*>> : BaseTest<R> {
@@ -9,7 +10,13 @@ interface ActivityTest<R : RobotArrangement<*>> : BaseTest<R> {
 
     override fun launchWith(robot: R) {
         rule.beforeActivityLaunch {
-            robot.beforeAction()
+            robot.beforeAction().also {
+                KoinActivity::class.qualifiedName?.let { koinActivityPackage ->
+                    if (rule.activityClass.superclass.name == koinActivityPackage) {
+                        mockScopeQualifier<KoinActivity>(rule.activityClass.kotlin)
+                    }
+                }
+            }
         }.putBundles {
             robot.setupBundleForViewUnderTest(this)
         }.launchActivity()

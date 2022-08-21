@@ -1,28 +1,22 @@
 package com.projeto.movielist.view
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
-import com.projeto.common.base.extensions.modules
 import com.projeto.common.base.extensions.onStateChange
 import com.projeto.common.base.view.GridSpacingItemDecoration
 import com.projeto.common.base.viewbinding.viewBinding
-import com.projeto.common.koin.aware.KoinAware
-import com.projeto.common.koin.aware.ModuleList
+import com.projeto.common.koin.aware.scopemodule.KoinActivity
 import com.projeto.movielist.R
 import com.projeto.movielist.databinding.ActivityMovieListBinding
-import com.projeto.movielist.di.movieListPresentationModule
+import com.projeto.movielist.di.MovieListModule
 import com.projeto.movielist.state.MovieListState
 import com.projeto.movielist.view.adapter.MovieSearchAdapter
 import com.projeto.movielist.viewmodel.MovieListViewModel
 import com.projeto.navigation.MovieDetailNavigation
-import org.koin.android.ext.android.inject
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MovieListActivity : AppCompatActivity(R.layout.activity_movie_list), KoinAware {
-
-    override val subModules: ModuleList by modules(movieListPresentationModule)
+class MovieListActivity : KoinActivity(R.layout.activity_movie_list, MovieListModule) {
 
     private val viewModel: MovieListViewModel by viewModel()
     private val binding: ActivityMovieListBinding by viewBinding(R.id.movieListActivityRoot)

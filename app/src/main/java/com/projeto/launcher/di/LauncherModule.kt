@@ -1,13 +1,12 @@
 package com.projeto.launcher.di
 
-import com.projeto.teste.launcher.viewmodel.LauncherViewModel
-import org.koin.android.viewmodel.dsl.viewModel
-import org.koin.dsl.module
+import com.projeto.common.koin.aware.scopemodule.ScopeModule
+import com.projeto.launcher.viewmodel.LauncherViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.dsl.ScopeDSL
 
-internal val presentationModule = module {
-
-    viewModel {
-        LauncherViewModel()
+internal object LauncherActivityScopeModule : ScopeModule() {
+    override fun ScopeDSL.getPresentation() = dependencies {
+        viewModel { LauncherViewModel() }
     }
-
 }

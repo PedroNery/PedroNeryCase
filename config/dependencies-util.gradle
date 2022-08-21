@@ -28,6 +28,7 @@ ext.addDependencyInject = {
     implementation Deps.koin_android
     implementation Deps.koin_core
     implementation Deps.koin_viewmodel
+    implementation Deps.koin_scope
 }
 
 ext.addNavigation = {
